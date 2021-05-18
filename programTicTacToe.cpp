@@ -66,8 +66,16 @@ void result(char gameDecision)
 	}
 	else if(gameDecision == 'W')
 	{
-		cout<<"\n "<<mark<<"\a is winner !!"<<std::endl;
-	    gameOver = true;
+		if(gameMode == 1)
+			cout<<"\n Player "<<mark<<"\a is winner !!"<<std::endl; 
+		else
+		{
+			if(mark == 'X') 
+				cout<<"\n You\a are winner !!"<<std::endl;
+			else
+				cout<<"\n Sorry, Computer\a is winner !!"<<std::endl; 
+		}
+		gameOver = true;
 	}
 }
 
@@ -162,7 +170,8 @@ void ticTacToe()
 		count++;
 		assignMark(choice);
 		boardDisplay();
-		gameLogic();
+		if(count>=5)
+			gameLogic();
         if(playerOneTurn==true)
         {
         	playerOneTurn=false;
@@ -186,10 +195,11 @@ int main()
 	while(gameMenu)
 	{
 		cout<<"\n\n Select Game Mode : \n\n 1. Player Vs Player (Press 1) \n 2. Computer Vs Player (Press 2) \n\n Exit Game (Press 3) \n\n Enter Choice : ";
-	    cin>>gameMode;
+	    gameMode=input();
 
 	    if(gameMode==1||gameMode==2)
 	    {
+	    	boardDisplay();
 	    	while(!gameOver)
 	    	{
 	    		ticTacToe();

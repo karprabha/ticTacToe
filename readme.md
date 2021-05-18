@@ -20,7 +20,7 @@ This project is open and if you are willing to contribute for free you are most 
 Basic information regarding this program -
 1. Made in C++
 2. Used standard headers 
-3. Random function is used for Computer vs Player mode
+3. rand function is used for Computer vs Player mode
 
 ## Author
 This program is developed by Prabhakar Yadav
